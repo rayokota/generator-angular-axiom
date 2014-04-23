@@ -1,0 +1,9 @@
+{application, <%= baseName %>,
+ [
+  {description, ""},
+  {vsn, "1.0"},
+  {applications,
+    [kernel,stdlib,lager,axiom,emysql,sumo_db]},
+  {mod, {<%= baseName %>, []}}
+ ]
+}.
