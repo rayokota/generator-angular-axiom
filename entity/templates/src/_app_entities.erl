@@ -20,17 +20,21 @@ sumo_schema() ->
 
 sumo_sleep(Entity) -> Entity.
 
-date_to_binary(Date) ->
-    case Date of
+attr_wakeup(Value) ->
+    case Value of
         {date, {Year, Month, Day}} ->
             list_to_binary(io_lib:format("~p-~p-~p", [Year, Month, Day]));
+        <<"true">> ->
+            true;
+        <<"false">> ->
+            false;
         _ ->
-            Date
+            Value
     end.
 
 sumo_wakeup(Entity) -> 
     lists:map(
         fun({Key, Value}) ->
-            {Key, date_to_binary(Value)}
+            {Key, attr_wakeup(Value)}
         end, Entity).
 

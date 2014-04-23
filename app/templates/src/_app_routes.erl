@@ -6,7 +6,7 @@ start() ->
 
 <% _.each(entities, function (entity) { %>
 handle(<<"GET">>, [<<"<%= baseName %>">>, <<"<%= pluralize(entity.name) %>">>], _Req) ->
-    {200, jsx:encode(sumo:find_all(<%= baseName %>_<%= pluralize(entity.name) %>))};
+    {200, jsx:encode(lists:reverse(sumo:find_all(<%= baseName %>_<%= pluralize(entity.name) %>)))};
 
 handle(<<"GET">>, [<<"<%= baseName %>">>, <<"<%= pluralize(entity.name) %>">>, Id], _Req) ->
     Entity = sumo:find(<%= baseName %>_<%= pluralize(entity.name) %>, Id),
