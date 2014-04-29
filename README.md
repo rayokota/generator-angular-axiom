@@ -23,6 +23,8 @@ The above prerequisites can be installed to a VM using the [Angular-Axiom provis
 In a new directory, generate the service:
 
     yo angular-axiom
+    
+Create a user and database in MySQL as specified in the file `priv/app.config`.
 
 Install dependencies and build the service:
 
@@ -52,8 +54,6 @@ You will be asked to specify attributes for the entity, where each attribute has
 - whether the attribute is required
 
 Files that are regenerated will appear as conflicts.  Allow the generator to overwrite these files as long as no custom changes have been made.
-
-Create a user and database in MySQL as specified in the file `priv/app.config`.
 
 Install dependencies and build the service:
 
